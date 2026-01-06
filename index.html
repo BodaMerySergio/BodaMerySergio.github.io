@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda de Sergio y Mery - 4 de Julio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sección de encabezado principal -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="nombres">Sergio & Mery</h1>
+            <p class="fecha">4 de Julio</p>
+            <p class="lugar">La Casona de Torrelodones</p>
+            <div class="divider"></div>
+            <p class="invitacion">Nos casamos y queremos celebrarlo contigo!</p>
+        </div>
+    </header>
+
+    <!-- Navegación -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <!-- <li><a href="#historia">Nuestra Historia</a></li> -->
+            <li><a href="#detalles">Detalles</a></li>
+            <li><a href="#ubicacion">Ubicación</a></li>
+            <li><a href="#confirmacion">Confirmación</a></li>
+            <li><a href="#galeria">Nuestra Historia</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección de cuenta regresiva -->
+    <section id="inicio" class="countdown-section">
+        <h2>Faltan</h2>
+        <div class="countdown" id="countdown">
+            <div class="time-unit">
+                <span id="days">0</span>
+                <p>Días</p>
+            </div>
+            <div class="time-unit">
+                <span id="hours">0</span>
+                <p>Horas</p>
+            </div>
+            <div class="time-unit">
+                <span id="minutes">0</span>
+                <p>Minutos</p>
+            </div>
+            <div class="time-unit">
+                <span id="seconds">0</span>
+                <p>Segundos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de detalles del evento -->
+    <section id="detalles" class="detalles-section">
+        <div class="container">
+            <h2>Detalles del Evento</h2>
+            <div class="divider"></div>
+            <div class="eventos-grid">
+                <div class="evento-card">
+                    <div class="icon">💒</div>
+                    <h3>Ceremonia</h3>
+                    <p class="hora">12:30h</p>
+                    <p>La ceremonia y posterior celebración se celebrará en La Casona de Torrelodones.</p>
+                </div>
+                <div class="evento-card">
+                    <div class="icon">🚗</div>
+                    <h3>Transporte</h3>
+                    <p>En La Casona hay parking y llegan ubers y taxis sin problema hasta la puerta, se puede dejar el coche ahí y recogerlo a la mañana siguiente.</p>
+                </div>
+                <div class="evento-card">
+                    <div class="icon">👔</div>
+                    <h3>Código de Vestimenta</h3>
+                    <p class="hora">Formal</p>
+                    <p>Pedimos que asistan con vestimenta formal para la ocasión.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de ubicación -->
+    <section id="ubicacion" class="ubicacion-section">
+        <div class="container">
+            <h2>Ubicación</h2>
+            <div class="divider"></div>
+            <div class="ubicacion-info">
+                <h3> La Casona de Torrelodones </h3>
+                <p>📍 La Casona de Torrelodones, Crta. de Torrelodones a Hoyo de Manzanares, Km. 23
+28250 - Torrelodones (MADRID).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de confirmación -->
+    <section id="confirmacion" class="confirmacion-section">
+  <div class="container">
+    <h2>Confirmación de Asistencia</h2>
+    <div class="divider"></div>
+    <p class="confirmacion-texto">Por favor, confirma tu asistencia antes del 1 de junio.</p>
+
+    <div class="confirmacion-card" aria-labelledby="confirmacion">
+      <form id="rsvp-form" aria-describedby="rsvp-instrucciones" novalidate>
+        <div class="form-row">
+          <label for="name">Nombre completo</label>
+          <input id="name" name="name" type="text" required />
+        </div>
+
+        <div class="form-row">
+          <label for="email">Correo electrónico</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+
+        <div class="form-row full">
+          <label>¿Asistirás?</label>
+          <div class="radio-group">
+            <label class="radio-pill"><input type="radio" name="attending" value="Sí" required /> Sí</label>
+            <label class="radio-pill"><input type="radio" name="attending" value="No" /> No</label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="guests">Número de asistentes total</label>
+          <input id="guests" name="guests" type="number" min="0" value="0" />
+        </div>
+
+        <div class="form-row">
+          <label for="kids">Número de niños</label>
+          <input id="kids" name="kids" type="number" min="0" value="0" />
+        </div>
+
+        <div class="form-row full kids-menu-section" id="kids-menu-section" style="display: none;">
+          <label for="kids-meal">Información sobre menú de niños</label>
+          <input id="kids-meal" name="kids-meal" type="text" placeholder="Ej. 2 menús infantiles, 1 menú adulto" />
+        </div>
+
+
+
+        <div class="form-row full">
+          <label for="dietary">Alergias / restricciones</label>
+          <input id="dietary" name="dietary" type="text" placeholder="Ej. gluten, lactosa..." />
+        </div>
+
+        <div class="form-row full">
+          <label for="message">Mensaje para los novios</label>
+          <textarea id="message" name="message" rows="3"></textarea>
+        </div>
+
+        <div class="actions full" aria-hidden="false">
+          <button id="rsvp-submit" type="submit">Enviar RSVP</button>
+          <button type="button" class="button-secondary" onclick="document.getElementById('rsvp-form').reset();">Borrar</button>
+          <div id="rsvp-status" role="status" aria-live="polite"></div>
+        </div>
+      </form>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <button id="registry-btn" style="background: white; color: #667eea; border: 2px solid white; padding: 12px 28px; border-radius: 999px; font-weight: 700; cursor: pointer; font-size: 1rem;">Lista de Regalos</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modal para lista de regalos -->
+<div id="registry-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 9999; align-items: center; justify-content: center;">
+  <div style="background: white; padding: 40px; border-radius: 16px; max-width: 500px; margin: 20px; position: relative;">
+    <button id="registry-close" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 28px; cursor: pointer; color: #666;">&times;</button>
+    <h3 style="color: #667eea; margin-bottom: 20px; font-size: 1.8rem;">Lista de Regalos</h3>
+    <p style="margin-bottom: 20px; line-height: 1.6;">¡Gracias por pensar en nosotros! Vuestra presencia es nuestro mejor regalo, pero si deseáis contribuir a nuestro futuro juntos, aquí está nuestra información bancaria:</p>
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+      <p style="margin: 8px 0;"><strong>Titular:</strong> Sergio y Mery</p>
+      <p style="margin: 8px 0;"><strong>IBAN:</strong> ES00 0000 0000 0000 0000 0000</p>
+    </div>
+    <p style="font-style: italic; color: #666; font-size: 0.95rem;">¡Muchas gracias por vuestro cariño y generosidad!</p>
+  </div>
+</div>
+
+    <!-- Nueva sección: Nuestra Historia -->
+    <section id="galeria" class="galeria-section">
+        <div class="container">
+            <h2>Nuestra Historia</h2>
+            <p class="pie">Nuestra Historia va aqui</p>
+            <div class="grid" id="grid">
+                <div class="grid-item"><img src="pics/IMG_0829.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/2025-05-29_15-53-17_000.jpeg" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_4453.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_4864.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_7029.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/E153AEFB-002E-4900-9225-87658D8069C1-891-0000004344C8F05E.JPEG" alt=""></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Boda de Sergio y Mery</p>
+            <p class="footer-mensaje">¡Esperamos verte el 4 de julio!</p>
+        </div>
+    </footer>
+
+    <!-- Script para la cuenta regresiva -->
+    <script src="script.js"></script>
+    <script src="rsvp.js"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+          // Forzar comportamiento: quitar lazy-loading y forzar redibujo en móviles
+          document.querySelectorAll('#grid .grid-item img').forEach(img => {
+            try {
+              const src = img.getAttribute('src');
+              if (!src) return;
+              img.loading = 'eager';          // evitar lazy-loading en móviles problemáticos
+              // re-asignar src para forzar recarga en casos raros
+              img.style.display = 'block';
+              // small delay to avoid jank
+              setTimeout(()=> { img.src = src; }, 80);
+            } catch(e) {
+              console.warn('miniatura fix error', e);
+            }
+          });
+        
+          // Si alguna imagen no tiene tamaño después de 500ms, le ponemos como fondo (fallback)
+          setTimeout(() => {
+            document.querySelectorAll('#grid .grid-item').forEach(item => {
+              const img = item.querySelector('img');
+              if (!img) return;
+              const rect = img.getBoundingClientRect();
+              if (rect.width === 0 || rect.height === 0 || img.naturalWidth === 0) {
+                // fallback: usar como background-image
+                const src = img.getAttribute('src');
+                if (src) {
+                  item.style.backgroundImage = `url("${src}")`;
+                  item.style.backgroundSize = 'cover';
+                  item.style.backgroundPosition = 'center';
+                  img.style.display = 'none';
+                }
+              }
+            });
+          }, 500);
+
+          // Mostrar/ocultar menú de niños
+          const kidsInput = document.getElementById('kids');
+          const kidsMenuSection = document.getElementById('kids-menu-section');
+          
+          if (kidsInput && kidsMenuSection) {
+            kidsInput.addEventListener('input', function() {
+              const kidsCount = parseInt(this.value) || 0;
+              if (kidsCount > 0) {
+                kidsMenuSection.style.display = 'flex';
+              } else {
+                kidsMenuSection.style.display = 'none';
+              }
+            });
+          }
+
+          // Modal de lista de regalos
+          const registryBtn = document.getElementById('registry-btn');
+          const registryModal = document.getElementById('registry-modal');
+          const registryClose = document.getElementById('registry-close');
+          
+          if (registryBtn && registryModal && registryClose) {
+            registryBtn.addEventListener('click', function() {
+              registryModal.style.display = 'flex';
+            });
+            
+            registryClose.addEventListener('click', function() {
+              registryModal.style.display = 'none';
+            });
+            
+            registryModal.addEventListener('click', function(e) {
+              if (e.target === registryModal) {
+                registryModal.style.display = 'none';
+              }
+            });
+          }
+        });
+        </script>
+</body>
+</html>
