@@ -31,7 +31,7 @@ function doPost(e) {
         "Asistirá",
         "Invitados Total",
         "Niños",
-        "Menú Niños",
+        "Menu",
         "Alergias/Restricciones",
         "Mensaje",
         "Recibido (Timestamp)"
@@ -46,7 +46,7 @@ function doPost(e) {
       data.attending || "",
       data.guests || "",
       data.kids || "",
-      data.kidsMeal || "",
+      data.menuPreferences || "",
       data.dietary || "",
       data.message || "",
       new Date()

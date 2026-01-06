@@ -624,6 +624,61 @@ section {
 /* Mensaje de estado */
 #rsvp-status { margin-left: 6px; color: #333; font-weight: 600; }
 
+/* --- Estilos para la sección de selección de menú --- */
+.menu-section {
+  margin-top: 20px;
+}
+
+.guest-menu {
+  margin-bottom: 15px;
+  padding: 15px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  background: #f8f9fa;
+}
+
+.guest-menu label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.guest-menu .radio-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.guest-menu .radio-pill {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: white;
+  cursor: pointer;
+  user-select: none;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.guest-menu .radio-pill:hover {
+  background: #667eea;
+  color: white;
+  border-color: #667eea;
+}
+
+.guest-menu .radio-pill input {
+  margin: 0;
+  accent-color: #667eea;
+}
+
+.guest-menu .radio-pill input:checked + span {
+  font-weight: 600;
+}
+
 /* --- Galería: fallback robusto para móviles (aspect ratio) --- */
 /* caja con proporción usando pseudo-elemento y posicionamiento absoluto
    esto evita que algunos navegadores móviles colapsen la altura */
