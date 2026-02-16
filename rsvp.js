@@ -1,4 +1,4 @@
-const SHEET_URL = "https://script.google.com/macros/s/AKfycbz9xyjYJ9mbEbgerV299G-s7nROjC7X5zlNHr9wG-zytlsn4wSInh1N_eNU3ddtD-vEQA/exec";
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbyGRfESm7mhm0JcXnVvxgakOvyL8BbM5vuoENK7U9xQrjaUFgbLXN02yKX_RzvdtwDeTA/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("rsvp-form");
@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       
       // Niños - campo de texto libre
+            // Niños - opciones carne/pescado/menú infantil
       for (let i = 1; i <= totalKids; i++) {
         const kidDiv = document.createElement("div");
         kidDiv.className = "guest-menu";
@@ -45,11 +46,15 @@ document.addEventListener("DOMContentLoaded", () => {
         
         kidDiv.innerHTML = `
           <label style="display: block; margin-bottom: 8px; font-weight: 600;">Niño ${i}:</label>
-          <input type="text" name="kid-menu-${i}" placeholder="Ej. menú infantil, pescado, etc." style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;" />
+          <div class="radio-group">
+            <label class="radio-pill"><input type="radio" name="kid-menu-${i}" value="Carne" required /> Carne</label>
+            <label class="radio-pill"><input type="radio" name="kid-menu-${i}" value="Pescado" /> Pescado</label>
+            <label class="radio-pill"><input type="radio" name="kid-menu-${i}" value="Menú Infantil" /> Menú Infantil</label>
+          </div>
         `;
-        
         menuPreferences.appendChild(kidDiv);
       }
+
     } else {
       menuSection.style.display = "none";
     }
@@ -86,6 +91,18 @@ document.addEventListener("DOMContentLoaded", () => {
       if (choice) menuChoices.push(`Niño ${i}: ${choice}`);
     }
     
+    // const data = {
+    //   timestamp: new Date().toISOString(),
+    //   name: formData.get("name") || "",
+    //   email: formData.get("email") || "",
+    //   attending: formData.get("attending") || "",
+    //   guests: formData.get("guests") || "0",
+    //   kids: formData.get("kids") || "0",
+    //   menuPreferences: menuChoices.join("; ") || "",
+    //   dietary: formData.get("dietary") || "",
+    //   message: formData.get("message") || ""
+    // };
+
     const data = {
       timestamp: new Date().toISOString(),
       name: formData.get("name") || "",
@@ -95,8 +112,10 @@ document.addEventListener("DOMContentLoaded", () => {
       kids: formData.get("kids") || "0",
       menuPreferences: menuChoices.join("; ") || "",
       dietary: formData.get("dietary") || "",
+      song: formData.get("song") || "",
       message: formData.get("message") || ""
     };
+
 
     try {
       const resp = await fetch(SHEET_URL, {

@@ -141,6 +141,11 @@
         </div>
 
         <div class="form-row full">
+          <label for="song">🎵 Petición de canción</label>
+          <input id="song" name="song" type="text" placeholder="Ej. Miliki - La Gallina Turuleca" />
+        </div>
+
+        <div class="form-row full">
           <label for="message">Mensaje para los novios</label>
           <textarea id="message" name="message" rows="3"></textarea>
         </div>
@@ -153,7 +158,8 @@
       </form>
     </div>
 
-    <div style="text-align: center; margin-top: 30px;">
+    <div style="text-align: center; margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+      <a href="invite.ics" download style="background: white; color: #667eea; border: 2px solid white; padding: 12px 28px; border-radius: 999px; font-weight: 700; cursor: pointer; font-size: 1rem; text-decoration: none; display: inline-block;">📅 Añadir al Calendario</a>
       <button id="registry-btn" style="background: white; color: #667eea; border: 2px solid white; padding: 12px 28px; border-radius: 999px; font-weight: 700; cursor: pointer; font-size: 1rem;">Lista de Regalos</button>
     </div>
 
@@ -178,7 +184,7 @@
     <section id="galeria" class="galeria-section">
         <div class="container">
             <h2>Nuestra Historia</h2>
-            <p class="pie">Nuestra Historia va aqui</p>
+            <p class="pie"> </p> <!-- Aqui escribes lo que quieras de vosotros -->
             <div class="grid" id="grid">
                 <div class="grid-item"><img src="pics/IMG_0829.JPEG" alt=""></div>
                 <div class="grid-item"><img src="pics/2025-05-29_15-53-17_000.jpeg" alt=""></div>

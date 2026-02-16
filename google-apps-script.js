@@ -7,21 +7,21 @@ function doPost(e) {
     if (sheet.getLastRow() === 0) {
       sheet.appendRow([
         'Timestamp', 'Nombre', 'Email', 'Asistencia', 'Invitados', 
-        'Niños', 'Menú Niños', 'Preferencias Menú', 'Alergias', 'Mensaje'
+        'Niños', 'Preferencias Menú', 'Alergias', 'Canción', 'Mensaje'
       ]);
     }
     
     // Añadir los datos
-    sheet.appendRow([
+        sheet.appendRow([
       data.timestamp,
       data.name,
       data.email,
       data.attending,
       data.guests,
       data.kids,
-      data.kidsMeal,
-      data.menuPreferences,  // Nueva columna para las preferencias de menú
+      data.menuPreferences,
       data.dietary,
+      data.song,
       data.message
     ]);
     

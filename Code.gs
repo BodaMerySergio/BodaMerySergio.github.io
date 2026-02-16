@@ -28,14 +28,29 @@ function doPost(e) {
         "Fecha y Hora",
         "Nombre",
         "Correo Electrónico",
-        "Asistirá",
+        "Asistencia",
         "Invitados Total",
         "Niños",
-        "Menu",
+        "Carne",
+        "Pescado",
+        "Menú Infantil",
         "Alergias/Restricciones",
+        "Canción",
         "Mensaje",
         "Recibido (Timestamp)"
       ]);
+    }
+
+    // Contar las opciones de menú
+    const menuPrefs = data.menuPreferences || "";
+    let carneCount = 0;
+    let pescadoCount = 0;
+    let menuInfantilCount = 0;
+    
+    if (menuPrefs) {
+      carneCount = (menuPrefs.match(/Carne/g) || []).length;
+      pescadoCount = (menuPrefs.match(/Pescado/g) || []).length;
+      menuInfantilCount = (menuPrefs.match(/Menú Infantil/g) || []).length;
     }
 
     // Build row in the same order as headers
@@ -46,8 +61,11 @@ function doPost(e) {
       data.attending || "",
       data.guests || "",
       data.kids || "",
-      data.menuPreferences || "",
+      carneCount || "" ,
+      pescadoCount || "",
+      menuInfantilCount || "",
       data.dietary || "",
+      data.song || "",
       data.message || "",
       new Date()
     ];
