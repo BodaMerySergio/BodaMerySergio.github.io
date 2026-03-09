@@ -209,22 +209,9 @@
     <script src="rsvp.js"></script>
 
 
-    <script>
+        <script>
         document.addEventListener('DOMContentLoaded', function(){
-          // Forzar comportamiento: quitar lazy-loading y forzar redibujo en móviles
-          document.querySelectorAll('#grid .grid-item img').forEach(img => {
-            try {
-              const src = img.getAttribute('src');
-              if (!src) return;
-              img.loading = 'eager';          // evitar lazy-loading en móviles problemáticos
-              // re-asignar src para forzar recarga en casos raros
-              img.style.display = 'block';
-              // small delay to avoid jank
-              setTimeout(()=> { img.src = src; }, 80);
-            } catch(e) {
-              console.warn('miniatura fix error', e);
-            }
-                    // Hamburger menu toggle
+          // Hamburger menu toggle
           const navToggle = document.getElementById('nav-toggle');
           const navMenu = document.getElementById('nav-menu');
           if (navToggle && navMenu) {
@@ -236,6 +223,17 @@
             });
           }
 
+          // Forzar comportamiento: quitar lazy-loading y forzar redibujo en móviles
+          document.querySelectorAll('#grid .grid-item img').forEach(img => {
+            try {
+              const src = img.getAttribute('src');
+              if (!src) return;
+              img.loading = 'eager';
+              img.style.display = 'block';
+              setTimeout(()=> { img.src = src; }, 80);
+            } catch(e) {
+              console.warn('miniatura fix error', e);
+            }
           });
         
           // Si alguna imagen no tiene tamaño después de 500ms, le ponemos como fondo (fallback)
@@ -245,7 +243,6 @@
               if (!img) return;
               const rect = img.getBoundingClientRect();
               if (rect.width === 0 || rect.height === 0 || img.naturalWidth === 0) {
-                // fallback: usar como background-image
                 const src = img.getAttribute('src');
                 if (src) {
                   item.style.backgroundImage = `url("${src}")`;
@@ -256,21 +253,6 @@
               }
             });
           }, 500);
-
-          // Mostrar/ocultar menú de niños
-          const kidsInput = document.getElementById('kids');
-          const kidsMenuSection = document.getElementById('kids-menu-section');
-          
-          if (kidsInput && kidsMenuSection) {
-            kidsInput.addEventListener('input', function() {
-              const kidsCount = parseInt(this.value) || 0;
-              if (kidsCount > 0) {
-                kidsMenuSection.style.display = 'flex';
-              } else {
-                kidsMenuSection.style.display = 'none';
-              }
-            });
-          }
 
           // Modal de lista de regalos
           const registryBtn = document.getElementById('registry-btn');
@@ -293,6 +275,7 @@
             });
           }
         });
-        </script>
+    </script>
+
 </body>
 </html>

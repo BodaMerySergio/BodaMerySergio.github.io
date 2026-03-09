@@ -486,13 +486,13 @@ header .invitacion {
 }
 
 @media (max-width: 768px) {
-    .nav-toggle { display: block; }
+    .nav-toggle { display: block !important; }
     .navbar ul {
-        display: none;
+        display: none !important;
         flex-direction: column;
     }
     .navbar ul.open {
-        display: flex;
+        display: flex !important;
     }
     .navbar a { padding: 15px 20px; }
     .nombres { font-size: 2.5rem; }
@@ -507,6 +507,7 @@ header .invitacion {
     .grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
     .grid-item { min-height: 100px; }
 }
+
 
 
 /* Animaciones suaves */
