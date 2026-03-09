@@ -19,10 +19,10 @@
     </header>
 
     <!-- Navegación -->
-    <nav class="navbar">
-        <ul>
+        <nav class="navbar">
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menú">☰</button>
+        <ul id="nav-menu">
             <li><a href="#inicio">Inicio</a></li>
-            <!-- <li><a href="#historia">Nuestra Historia</a></li> -->
             <li><a href="#detalles">Detalles</a></li>
             <li><a href="#ubicacion">Ubicación</a></li>
             <li><a href="#confirmacion">Confirmación</a></li>
@@ -224,6 +224,18 @@
             } catch(e) {
               console.warn('miniatura fix error', e);
             }
+                    // Hamburger menu toggle
+          const navToggle = document.getElementById('nav-toggle');
+          const navMenu = document.getElementById('nav-menu');
+          if (navToggle && navMenu) {
+            navToggle.addEventListener('click', function() {
+              navMenu.classList.toggle('open');
+            });
+            navMenu.querySelectorAll('a').forEach(link => {
+              link.addEventListener('click', () => navMenu.classList.remove('open'));
+            });
+          }
+
           });
         
           // Si alguna imagen no tiene tamaño después de 500ms, le ponemos como fondo (fallback)

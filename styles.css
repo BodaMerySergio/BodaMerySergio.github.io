@@ -474,22 +474,40 @@ header .invitacion {
     #rsvp-form .actions { justify-content: center; }
 }
 
+/* Hamburger button - hidden on desktop */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #667eea;
+    cursor: pointer;
+    padding: 12px 20px;
+}
+
 @media (max-width: 768px) {
+    .nav-toggle { display: block; }
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+    }
+    .navbar ul.open {
+        display: flex;
+    }
+    .navbar a { padding: 15px 20px; }
     .nombres { font-size: 2.5rem; }
     .fecha { font-size: 1.4rem; }
     .lugar { font-size: 1.1rem; }
-    .navbar ul { flex-direction: column; }
-    .navbar a { padding: 15px 20px; }
     .countdown { gap: 15px; }
     .time-unit { padding: 20px 30px; min-width: 100px; }
     .time-unit span { font-size: 2rem; }
     .eventos-grid { grid-template-columns: 1fr; }
     header { min-height: 240px; }
     header .nombres { font-size: 1.6rem; }
-    /* ensure gallery images show on mobile by giving grid items height */
     .grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
     .grid-item { min-height: 100px; }
 }
+
 
 /* Animaciones suaves */
 @keyframes fadeIn {
